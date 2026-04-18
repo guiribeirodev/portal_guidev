@@ -1,0 +1,163 @@
+---
+import '../styles/global.css'
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/inter';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    {description && <meta name="description" content={description} />}
+    <title>{title}</title>
+  </head>
+  <body class="bg-background relative min-h-screen overflow-x-hidden antialiased">
+    <div 
+      id="matrix-container" 
+      class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
+      style="mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);"
+    ></div>
+
+    <!-- Blog Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 blog-nav">
+      <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 text-white/80 hover:text-accent transition-colors duration-300 group">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" class="group-hover:-translate-x-1 transition-transform duration-300">
+            <path d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"></path>
+          </svg>
+          <span class="font-heading font-medium text-sm">Voltar</span>
+        </a>
+        <a href="/blog" class="font-heading font-bold text-white/90 hover:text-accent transition-colors duration-300 text-sm tracking-wider uppercase">
+          Blog
+        </a>
+      </div>
+    </nav>
+
+    <main class="px-4 sm:px-6 max-w-4xl mx-auto relative z-0 pt-20 pb-20">
+      <slot />
+    </main>
+
+    <!-- Scroll to top button -->
+    <button
+      id="to-top"
+      class="fixed bottom-8 right-8 z-50 p-0 rounded-full bg-background border border-white/10 shadow-2xl transition-all duration-500 translate-y-20 opacity-0 group flex items-center justify-center cursor-pointer"
+      aria-label="Back to top"
+    >
+      <svg class="w-14 h-14 -rotate-90">
+        <circle cx="28" cy="28" r="24" fill="none" stroke="currentColor" stroke-width="3" class="text-white/5"></circle>
+        <circle
+          id="progress-circle"
+          cx="28" cy="28" r="24"
+          fill="none"
+          stroke="currentColor" 
+          stroke-width="3"
+          stroke-dasharray="150.7"
+          stroke-dashoffset="150.7"
+          stroke-linecap="round"
+          class="text-accent transition-all duration-100"
+        ></circle>
+      </svg>
+      <div class="absolute text-accent group-hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M13.0001 7.82843V20H11.0001V7.82843L5.63614 13.1924L4.22192 11.7782L12.0001 4L19.7783 11.7782L18.3641 13.1924L13.0001 7.82843Z"></path>
+        </svg>
+      </div>
+    </button>
+
+    <script>
+      // Matrix rain effect (reduced for blog readability)
+      const container = document.getElementById('matrix-container');
+      const characters = "{}[]()<>/\\=+*01;";
+
+      function createLetter() {
+        if (!container) return;
+        const span = document.createElement('span');
+        const char = characters[Math.floor(Math.random() * characters.length)];
+        const color = "var(--color-darkgray)";
+        const left = Math.random() * 100; 
+        const duration = 4 + Math.random() * 8;
+        const size = 10 + Math.random() * 10;
+        
+        span.innerText = char;
+        span.className = 'falling-letter';
+        span.style.left = `${left}vw`;
+        span.style.color = color;
+        span.style.fontSize = `${size}px`;
+        span.style.animationDuration = `${duration}s`;
+        span.style.textShadow = `0 0 5px ${color}`;
+        span.style.opacity = '0.3';
+        container.appendChild(span);
+
+        setTimeout(() => {
+          span.remove();
+        }, duration * 1000);
+      }
+
+      if (window.innerWidth > 768) {
+        setInterval(createLetter, 500); // slower for blog pages
+      }
+
+      // Scroll to top
+      const toTopBtn = document.getElementById('to-top');
+      const progressCircle = document.getElementById('progress-circle');
+      const circumference = 150.796;
+      const arrowIcon = toTopBtn?.querySelector('.absolute');
+
+      function handleScroll() {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = window.scrollY / scrollHeight;
+        
+        const offset = circumference - (scrollPercentage * circumference);
+        if (progressCircle) {
+          progressCircle.style.strokeDashoffset = offset.toString();
+        }
+
+        // Blog nav blur on scroll
+        const blogNav = document.querySelector('.blog-nav');
+        if (window.scrollY > 20) {
+          blogNav?.classList.add('scrolled');
+        } else {
+          blogNav?.classList.remove('scrolled');
+        }
+
+        if (scrollPercentage > 0.3) {
+          toTopBtn?.classList.remove('translate-y-20', 'opacity-0');
+          toTopBtn?.classList.add('translate-y-0', 'opacity-100');
+        } else {
+          toTopBtn?.classList.add('translate-y-20', 'opacity-0');
+          toTopBtn?.classList.remove('translate-y-0', 'opacity-100');
+        }
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      toTopBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .blog-nav {
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s ease;
+  }
+
+  .blog-nav.scrolled {
+    background-color: color-mix(in srgb, var(--color-background), transparent 20%);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+</style>
