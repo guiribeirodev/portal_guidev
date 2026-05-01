@@ -22,9 +22,9 @@
       "icon": "mdi:email"
     },
     {
-      "name": "Discord",
-      "url": "@guiribeirodev",
-      "icon": "mdi:discord"
+      "name": "Telegram",
+      "url": "https://t.me/guiribeirodev",
+      "icon": "mdi:telegram"
     }
   ]
 }

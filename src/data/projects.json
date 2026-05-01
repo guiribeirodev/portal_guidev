@@ -1,20 +1,39 @@
 [
   {
-    "title": "Awesome Website",
-    "description": "A high-performance, SEO-optimized web application built with modern frameworks to showcase technical expertise.",
-    "images": ["astro-01.webp", "astro-02.jpeg"],
-    "tech": ["Astro", "Tailwind"],
-    "platforms": ["web"],
-    "link": "#",
-    "category": "Published Website"
+    "title": "Gerenciador de Tarefas",
+    "description": "Uma API RESTful, com autenticação JWT, CRUD completo e integração com banco de dados PostgreSQL.",
+    "images": [
+      "/img/projects/api-tasks.png",
+      "/img/projects/api-tasks-doc.png"
+    ],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "link": "https://github.com/guiribeirodev/fastapi_zero_duno",
+    "category": "API"
   },
   {
-    "title": "Demo Mobile App",
-    "description": "A high-performance mobile application built with modern frameworks to showcase technical expertise.",
-    "images": ["astro-02.jpeg", "#"],
-    "tech": ["Flutter", "Dart", "REST API"],
-    "platforms": ["apple-ios", "android"],
-    "link": "#",
-    "category": "Hobby"
+    "title": "Gerenciador de Gastos",
+    "description": "API RESTFull que permite ao usuário criar, ler, atualizar e excluir registros de gastos.",
+    "images": [
+      "astro-02.jpeg",
+      "#"
+    ],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "REST API"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "link": "https://github.com/guiribeirodev/controle-gastos-api",
+    "category": "API"
   }
 ]

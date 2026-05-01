@@ -3,24 +3,66 @@
     {
       "title": "Frontend",
       "skills": [
-        { "name": "HTML", "level": 2, "icon": "skill-icons:html" },
-        { "name": "CSS", "level": 2, "icon": "skill-icons:css" },
-        { "name": "Tailwind CSS", "level": 1, "icon": "skill-icons:tailwindcss-dark" },
-        { "name": "JavaScript", "level": 1, "icon": "skill-icons:javascript" }
-
+        {
+          "name": "HTML",
+          "level": 2,
+          "icon": "skill-icons:html"
+        },
+        {
+          "name": "CSS",
+          "level": 2,
+          "icon": "skill-icons:css"
+        },
+        {
+          "name": "JavaScript",
+          "level": 1,
+          "icon": "skill-icons:javascript"
+        },
+        {
+          "name": "Tailwind CSS",
+          "level": 1,
+          "icon": "skill-icons:tailwindcss-dark"
+        }
       ]
     },
     {
       "title": "Backend",
       "skills": [
-        { "name": "NodeJs", "level": 2, "icon": "skill-icons:nodejs-dark" },
-        { "name": "TypeScript", "level": 3, "icon": "skill-icons:typescript" }
+        {
+          "name": "Python",
+          "level": 2,
+          "icon": "skill-icons:python-dark"
+        },
+        {
+          "name": "FastAPI",
+          "level": 3,
+          "icon": "skill-icons:fastapi"
+        }
       ]
     },
     {
       "title": "Database",
       "skills": [
-        { "name": "PostgreSQL", "level": 2, "icon": "skill-icons:postgresql-dark" }
+        {
+          "name": "PostgreSQL",
+          "level": 2,
+          "icon": "skill-icons:postgresql-dark"
+        }
+      ]
+    },
+    {
+      "title": "Ferramentas",
+      "skills": [
+        {
+          "name": "Git & Github",
+          "level": 2,
+          "icon": "skill-icons:github-dark"
+        },
+        {
+          "name": "Docker",
+          "level": 2,
+          "icon": "skill-icons:docker"
+        }
       ]
     }
   ]
