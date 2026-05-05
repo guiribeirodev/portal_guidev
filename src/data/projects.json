@@ -3,8 +3,8 @@
     "title": "Gerenciador de Tarefas",
     "description": "Uma API RESTful, com autenticação JWT, CRUD completo e integração com banco de dados PostgreSQL.",
     "images": [
-      "/img/projects/api-tasks.png",
-      "/img/projects/api-tasks-doc.png"
+      "astro-02.jpeg"
+
     ],
     "tech": [
       "Python",
