@@ -1,12 +1,12 @@
 [
   {
-    "title": "Gerenciador de Tarefas",
-    "description": "Uma API RESTful, com autenticação JWT, CRUD completo e integração com banco de dados PostgreSQL.",
+    "title": "Oganize My Life",
+    "description": "Aplicação de gerenciamento de tarefas estilo Kanban.",
     "images": [
-      "astro-02.jpeg"
-
+      "organize-my-life.png"
     ],
     "tech": [
+      "HTML/CSS/JS",
       "Python",
       "FastAPI",
       "PostgreSQL",
@@ -15,25 +15,57 @@
     "platforms": [
       "web"
     ],
-    "link": "https://github.com/guiribeirodev/fastapi_zero_duno",
-    "category": "API"
+    "link": "https://github.com/guiribeirodev/task-manager",
+    "category": "App web"
   },
   {
-    "title": "Gerenciador de Gastos",
-    "description": "API RESTFull que permite ao usuário criar, ler, atualizar e excluir registros de gastos.",
+    "title": "Timer Exercise",
+    "description": "Temporizador de exercícios, permite o usuario configurar e acompanhar o tempo de seus treinos.",
     "images": [
-      "astro-02.jpeg",
-      "#"
-    ],
+      "timer-exercise.png"    ],
     "tech": [
-      "Python",
-      "FastAPI",
-      "REST API"
+      "HTML/CSS/JS",
+      "Tailwind CSS",
+      "React",
+      "Vitest",
+      "GH Actions"
     ],
     "platforms": [
       "web"
     ],
-    "link": "https://github.com/guiribeirodev/controle-gastos-api",
-    "category": "API"
+    "link": "https://github.com/guiribeirodev/timer-exercise",
+    "category": "Site"
+  },  {
+    "title": "Telesshbot",
+    "description": "Bot de Telegram em Python que permite executar comandos no seu computador via SSH, diretamente pelo chat do Telegram.",
+    "images": [
+      "telesshbot.png"
+    ],
+    "tech": [
+      "Python",
+      "Paramiko",
+      "python-telegram-bot",
+      "UV"
+    ],
+    "platforms": [
+      "terminal"
+    ],
+    "link": "https://github.com/guiribeirodev/finance_control",
+    "category": "Terminal"
+  },{
+    "title": "Finance Control",
+    "description": "Um aplicativo de controle financeiro pessoal (Single Page Application) construído com Vanilla JavaScript, HTML, CSS e Vite.",
+    "images": [
+      "finance-control.png"
+    ],
+    "tech": [
+      "HTML/CSS/JS",
+      "Vite"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "link": "https://github.com/guiribeirodev/finance_control",
+    "category": "Site"
   }
 ]
